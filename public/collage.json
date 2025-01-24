@@ -1,6 +1,7 @@
 [
   {
-    "image": "https://source.unsplash.com/600x400/?university",
+    "id": 1,
+    "image": "https://i.ibb.co.com/0J0DP8T/blog.jpg",
     "name": "Harvard University",
     "admissionDate": "2025-06-01",
     "events": "Seminars, Workshops",
@@ -8,7 +9,8 @@
     "sports": "Football, Basketball"
   },
   {
-    "image": "https://source.unsplash.com/600x400/?campus",
+    "id": 2,
+    "image": "https://i.ibb.co.com/tJmhMyB/house-02.jpg",
     "name": "Stanford University",
     "admissionDate": "2025-07-15",
     "events": "Hackathons, Tech Meets",
@@ -16,7 +18,8 @@
     "sports": "Soccer, Swimming"
   },
   {
-    "image": "https://source.unsplash.com/600x400/?college",
+    "id": 3,
+    "image": "https://i.ibb.co.com/YhtqrJB/dhaka.jpg",
     "name": "MIT",
     "admissionDate": "2025-05-10",
     "events": "Lectures, Coding Challenges",

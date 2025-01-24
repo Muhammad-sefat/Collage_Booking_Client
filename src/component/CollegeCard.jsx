@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CollegeCard = ({
   image,
@@ -7,6 +8,7 @@ const CollegeCard = ({
   events,
   research,
   sports,
+  id,
 }) => {
   return (
     <div>
@@ -26,9 +28,11 @@ const CollegeCard = ({
           <p>
             <strong>Sports:</strong> {sports}
           </p>
-          <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">
-            Details
-          </button>
+          <Link to={`/colleges/${id}`}>
+            <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">
+              Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>
