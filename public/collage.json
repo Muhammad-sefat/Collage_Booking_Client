@@ -1,0 +1,26 @@
+[
+  {
+    "image": "https://source.unsplash.com/600x400/?university",
+    "name": "Harvard University",
+    "admissionDate": "2025-06-01",
+    "events": "Seminars, Workshops",
+    "research": "AI, Quantum Computing",
+    "sports": "Football, Basketball"
+  },
+  {
+    "image": "https://source.unsplash.com/600x400/?campus",
+    "name": "Stanford University",
+    "admissionDate": "2025-07-15",
+    "events": "Hackathons, Tech Meets",
+    "research": "Healthcare, Robotics",
+    "sports": "Soccer, Swimming"
+  },
+  {
+    "image": "https://source.unsplash.com/600x400/?college",
+    "name": "MIT",
+    "admissionDate": "2025-05-10",
+    "events": "Lectures, Coding Challenges",
+    "research": "Aerospace, VR",
+    "sports": "Tennis, Rowing"
+  }
+]
