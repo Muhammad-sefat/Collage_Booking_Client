@@ -79,7 +79,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/profile"}>
+              <NavLink to={"/login"}>
                 <a>Profile</a>
               </NavLink>
             </li>

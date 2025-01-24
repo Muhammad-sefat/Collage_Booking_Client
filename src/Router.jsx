@@ -5,11 +5,15 @@ import CollegeDetails from "./pages/CollegeDetails";
 import College from "./pages/College";
 import Admission from "./pages/Admission";
 import MyCollege from "./pages/MyCollege";
+import NotFound from "./component/NotFound";
+import Login from "./component/Login";
+import Register from "./component/Register";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -26,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "my-college",
         element: <MyCollege />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: `/colleges/:id`,
