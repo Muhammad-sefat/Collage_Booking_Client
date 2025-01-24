@@ -3,6 +3,8 @@ import App from "./App";
 import Home from "./pages/Home";
 import CollegeDetails from "./pages/CollegeDetails";
 import College from "./pages/College";
+import Admission from "./pages/Admission";
+import MyCollege from "./pages/MyCollege";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: "/colleges",
         element: <College />,
+      },
+      {
+        path: "/admission",
+        element: <Admission />,
+      },
+      {
+        path: "my-college",
+        element: <MyCollege />,
       },
       {
         path: `/colleges/:id`,

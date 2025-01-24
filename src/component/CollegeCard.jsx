@@ -12,7 +12,7 @@ const CollegeCard = ({
 }) => {
   return (
     <div>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden h-full">
         <img src={image} alt={name} className="w-full h-48 object-cover" />
         <div className="p-4">
           <h2 className="text-2xl font-bold mb-2">{name}</h2>
