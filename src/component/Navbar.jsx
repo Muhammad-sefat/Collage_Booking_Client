@@ -1,10 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="bg-gray-950">
-      <div className="navbar bg-orange-600">
-        <div className="navbar-start">
+    <div>
+      <div className="navbar">
+        <div className="navbar-start mx-8">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -27,28 +28,60 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <NavLink to={"/"}>
+                  <a>Home</a>
+                </NavLink>
               </li>
               <li>
-                <a href="">Item 2</a>
+                <NavLink to={"/colleges"}>
+                  <a>Colleges</a>
+                </NavLink>
               </li>
               <li>
-                <a>Item 3</a>
+                <NavLink to={"/admission"}>
+                  <a>Admission</a>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/my-college"}>
+                  <a>My College</a>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/profile"}>
+                  <a>Profile</a>
+                </NavLink>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">CollageBookig</a>
+          <a className="btn btn-ghost text-xl">College_Finder</a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+        <div className="navbar-end hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 text-base font-medium">
             <li>
-              <a>Item 1</a>
+              <NavLink to={"/"}>
+                <a>Home</a>
+              </NavLink>
             </li>
             <li>
-              <a href="">Item 2</a>
+              <NavLink to={"/colleges"}>
+                <a>Colleges</a>
+              </NavLink>
             </li>
             <li>
-              <a>Item 3</a>
+              <NavLink to={"/admission"}>
+                <a>Admission</a>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/my-college"}>
+                <a>My College</a>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/profile"}>
+                <a>Profile</a>
+              </NavLink>
             </li>
           </ul>
         </div>
