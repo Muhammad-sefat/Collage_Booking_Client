@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import { auth, googleProvider } from "../firebase.config";
 
@@ -37,13 +38,30 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const updateUserProfile = async (profile) => {
+    const user = auth.currentUser;
+    if (user) {
+      await updateProfile(user, profile);
+    } else {
+      throw new Error("No user is logged in");
+    }
+  };
+
   const logout = () => {
     return signOut(auth);
   };
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, register, login, loginWithGoogle, logout }}
+      value={{
+        user,
+        loading,
+        register,
+        login,
+        loginWithGoogle,
+        updateUserProfile,
+        logout,
+      }}
     >
       {!loading && children}
     </AuthContext.Provider>

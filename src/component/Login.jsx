@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,18 +17,20 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(formData.email, formData.password);
-      alert("Login successful!");
+      navigate("/");
+      toast.success("Login successful!");
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-      alert("Login with Google successful!");
+      navigate("/");
+      toast.success("Login with Google successful!");
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
