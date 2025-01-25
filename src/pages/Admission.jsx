@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../component/AuthProvider";
 
 const Admission = () => {
   const [selectedCollege, setSelectedCollege] = useState(null);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     candidateName: "",
     subject: "",
@@ -29,28 +33,53 @@ const Admission = () => {
     setFormData((prev) => ({ ...prev, image: e.target.files[0] }));
   };
 
-  const handleSubmit = (e) => {
+  const { user } = useAuth();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const storedAdmissions =
-      JSON.parse(localStorage.getItem("admissions")) || [];
-    localStorage.setItem(
-      "admissions",
-      JSON.stringify([
-        ...storedAdmissions,
-        { ...formData, college: selectedCollege },
-      ])
-    );
-    alert("Admission submitted successfully!");
-    setFormData({
-      candidateName: "",
-      subject: "",
-      email: "",
-      phone: "",
-      address: "",
-      dob: "",
-      image: null,
-    });
-    setSelectedCollege(null);
+    if (!user) {
+      toast.error("You must be logged in to submit admission!");
+      return;
+    }
+
+    const dataToSend = {
+      ...formData,
+      college: selectedCollege,
+      email: user.email,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/admissions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      });
+
+      const responseData = await response.json(); // Parse response body
+
+      if (response.ok) {
+        toast.success("Admission submitted successfully!");
+        navigate("/my-college");
+      } else {
+        toast.error(responseData.message || "Failed to submit admission.");
+      }
+    } catch (error) {
+      console.error("Error submitting admission:", error);
+      toast.error("An error occurred while submitting your admission.");
+    } finally {
+      // Reset the form data and preserve the selected college
+      setFormData({
+        candidateName: "",
+        subject: "",
+        email: "",
+        phone: "",
+        address: "",
+        dob: "",
+        image: null,
+      });
+      setSelectedCollege(null);
+    }
   };
 
   return (

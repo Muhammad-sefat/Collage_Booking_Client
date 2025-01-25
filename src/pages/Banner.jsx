@@ -5,7 +5,8 @@ const Banner = () => {
     <div
       className="relative h-[80vh] bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://i.ibb.co.com/XzLw9DS/library-01.jpg')",
+        backgroundImage:
+          "url('https://i.ibb.co.com/vzrHhc8/pexels-anastasia-shuraeva-8466778.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>

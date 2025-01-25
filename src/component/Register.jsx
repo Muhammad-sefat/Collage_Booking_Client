@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,7 +62,7 @@ const Register = () => {
         photoURL: imageUrl,
       });
 
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Registration successful!");
     } catch (error) {
       toast.error(error.message);
@@ -72,7 +74,7 @@ const Register = () => {
   const handleGoogleRegister = async () => {
     try {
       await loginWithGoogle();
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Registration with Google successful!");
     } catch (error) {
       toast.error(error.message);

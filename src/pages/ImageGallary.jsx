@@ -5,6 +5,9 @@ const ImageGallary = () => {
     "https://i.ibb.co.com/rycggt2/library-05.jpg",
     "https://i.ibb.co.com/kcbySyk/pexels-expressivestanley-1454360.jpg",
     "https://i.ibb.co.com/zn17pt8/pexels-rdne-7683745.jpg",
+    "https://i.ibb.co.com/DQqYBZZ/pexels-hai-nguyen-825252-1699414.jpg",
+    "https://i.ibb.co.com/2FDHQhz/pexels-olly-3769706.jpg",
+    "https://i.ibb.co.com/cNdZ00r/pexels-kampus-5940827.jpg",
   ];
   return (
     <div>

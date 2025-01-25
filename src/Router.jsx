@@ -8,6 +8,7 @@ import MyCollege from "./pages/MyCollege";
 import NotFound from "./component/NotFound";
 import Login from "./component/Login";
 import Register from "./component/Register";
+import ProtectedRoute from "./component/ProtectRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission />,
+        element: (
+          <ProtectedRoute>
+            <Admission />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "my-college",
-        element: <MyCollege />,
+        element: (
+          <ProtectedRoute>
+            <MyCollege />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",

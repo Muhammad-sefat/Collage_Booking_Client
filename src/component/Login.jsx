@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(formData.email, formData.password);
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Login successful!");
     } catch (error) {
       toast.error(error.message);
@@ -27,7 +29,7 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Login with Google successful!");
     } catch (error) {
       toast.error(error.message);
