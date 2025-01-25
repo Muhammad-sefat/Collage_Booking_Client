@@ -5,7 +5,6 @@ const CollegeDetails = () => {
   const { id } = useParams();
   const [college, setCollege] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(college);
 
   useEffect(() => {
     fetch("https://college-booking-server-two.vercel.app/Colleges")

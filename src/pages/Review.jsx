@@ -6,7 +6,7 @@ const Review = () => {
     const fetchReviews = async () => {
       try {
         const response = await fetch(
-          `https://college-booking-server-two.vercel.app/reviews`
+          "https://college-booking-server-two.vercel.app/reviews"
         );
         if (response.ok) {
           const data = await response.json();
