@@ -5,7 +5,7 @@ const College = () => {
   const [colleges, setColleges] = useState([]);
 
   useEffect(() => {
-    fetch("/collage.json")
+    fetch("http://localhost:5000/Colleges")
       .then((response) => response.json())
       .then((data) => setColleges(data))
       .catch((error) => console.error("Error fetching colleges:", error));

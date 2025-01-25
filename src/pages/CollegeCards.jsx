@@ -4,7 +4,7 @@ import CollegeCard from "../component/CollegeCard";
 const CollegeCards = () => {
   const [college, setCollege] = useState([]);
   useEffect(() => {
-    fetch("/collage.json")
+    fetch("http://localhost:5000/Colleges")
       .then((res) => res.json())
       .then((data) => setCollege(data));
   }, [college]);
