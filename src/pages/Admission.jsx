@@ -48,15 +48,18 @@ const Admission = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/admissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSend),
-      });
+      const response = await fetch(
+        "https://college-booking-server-two.vercel.app/admissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+        }
+      );
 
-      const responseData = await response.json(); // Parse response body
+      const responseData = await response.json();
 
       if (response.ok) {
         toast.success("Admission submitted successfully!");
@@ -68,7 +71,6 @@ const Admission = () => {
       console.error("Error submitting admission:", error);
       toast.error("An error occurred while submitting your admission.");
     } finally {
-      // Reset the form data and preserve the selected college
       setFormData({
         candidateName: "",
         subject: "",

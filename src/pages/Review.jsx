@@ -5,7 +5,9 @@ const Review = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/reviews`);
+        const response = await fetch(
+          `https://college-booking-server-two.vercel.app/reviews`
+        );
         if (response.ok) {
           const data = await response.json();
           setReviews(data);
@@ -18,33 +20,6 @@ const Review = () => {
     };
     fetchReviews();
   }, []);
-  // const reviews = [
-  //   {
-  //     id: 1,
-  //     name: "Abdullah al Riaz",
-  //     rating: 5,
-  //     feedback:
-  //       "Dhaka University provides excellent education and a vibrant campus life.",
-  //     image: "https://i.ibb.co.com/pKz54KS/pexels-liza-summer-6347887.jpg",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Mihad Hasan",
-  //     rating: 4,
-  //     feedback:
-  //       "AIUB has great facilities, but the workload can be overwhelming at times.",
-  //     image: "https://i.ibb.co.com/gSNh5dD/house-04.jpg",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Al Rifat",
-  //     rating: 5,
-  //     feedback:
-  //       "BUET offers an amazing balance between academics and extracurriculars.",
-  //     image:
-  //       "https://i.ibb.co.com/J2f2qKp/christian-buehner-84-E44-Ed-D18o-unsplash.jpg",
-  //   },
-  // ];
 
   return (
     <div>

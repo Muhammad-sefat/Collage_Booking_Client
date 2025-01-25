@@ -5,9 +5,10 @@ const CollegeDetails = () => {
   const { id } = useParams();
   const [college, setCollege] = useState(null);
   const [loading, setLoading] = useState(true);
+  console.log(college);
 
   useEffect(() => {
-    fetch("/collage.json")
+    fetch("https://college-booking-server-two.vercel.app/Colleges")
       .then((res) => res.json())
       .then((data) => {
         const selectedCollege = data.find(
