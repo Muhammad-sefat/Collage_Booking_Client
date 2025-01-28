@@ -1,6 +1,5 @@
 // AuthProvider.js
 import React, { createContext, useContext, useEffect, useState } from "react";
-// import { auth, googleProvider } from "./firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
