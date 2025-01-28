@@ -40,21 +40,18 @@ const MyCollege = () => {
     }
 
     try {
-      const response = await fetch(
-        "https://college-booking-server-two.vercel.app/add-review",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            name: admissions[id].candidateName,
-            review,
-            rating,
-          }),
-        }
-      );
+      const response = await fetch("http://localhost:5000/add-review", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          name: admissions[id].candidateName,
+          review,
+          rating,
+        }),
+      });
 
       if (response.ok) {
         navigate("/");
