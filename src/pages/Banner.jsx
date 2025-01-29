@@ -14,7 +14,7 @@ const Banner = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/search-college?name=${searchTerm}`
+        `https://college-booking-server-two.vercel.app/search-college?name=${searchTerm}`
       );
       if (response.ok) {
         const college = await response.json();

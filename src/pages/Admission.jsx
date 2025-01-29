@@ -48,14 +48,17 @@ const Admission = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/admissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSend),
-        // credentials: "include",
-      });
+      const response = await fetch(
+        "https://college-booking-server-two.vercel.app/admissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+          // credentials: "include",
+        }
+      );
 
       const responseData = await response.json();
 
