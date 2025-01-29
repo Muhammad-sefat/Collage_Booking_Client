@@ -5,9 +5,7 @@ const Review = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(
-          "https://college-booking-server-two.vercel.app/reviews"
-        );
+        const response = await fetch("http://localhost:5000/reviews");
         if (response.ok) {
           const data = await response.json();
           setReviews(data);

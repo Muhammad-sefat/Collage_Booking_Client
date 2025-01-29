@@ -15,7 +15,7 @@ const MyCollege = () => {
 
       try {
         const response = await fetch(
-          `https://college-booking-server-two.vercel.app/admission-data?email=${user.email}`
+          `http://localhost:5000/admission-data?email=${user.email}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -40,23 +40,20 @@ const MyCollege = () => {
     }
 
     try {
-      const response = await fetch(
-        "https://college-booking-server-two.vercel.app/add-review",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            name: admissions[id].candidateName,
-            review,
-            rating,
-          }),
-          credentials: "include",
-        }
-      );
+      const response = await fetch("http://localhost:5000/add-review", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          email: user.email,
+          name: admissions[id].candidateName,
+          review,
+          rating,
+        }),
+        // credentials: "include",
+      });
 
       if (response.ok) {
         navigate("/");
