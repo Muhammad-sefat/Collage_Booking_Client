@@ -7,7 +7,7 @@ const CollegeDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://college-booking-server-two.vercel.app/Colleges")
+    fetch("https://college-booking-server-two.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => {
         const selectedCollege = data.find(

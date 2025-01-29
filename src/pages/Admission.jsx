@@ -56,6 +56,7 @@ const Admission = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(dataToSend),
+          credentials: "include",
         }
       );
 
